@@ -6,10 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.example.pizzamagic.models.Ingredient;
 import com.example.pizzamagic.repositories.interfaces.IIngredientRepository;
 
+@Repository
 public class JDBCIngredientRepository implements IIngredientRepository {
 
     private JdbcTemplate jdbcTemplate;

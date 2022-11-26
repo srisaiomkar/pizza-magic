@@ -9,6 +9,6 @@ public class Ingredient {
     private final Type type;
     
     public enum Type{
-        CHEESE, TOPPINGS, BREAD
+        CHEESE, TOPPING, BREAD
     }
 }

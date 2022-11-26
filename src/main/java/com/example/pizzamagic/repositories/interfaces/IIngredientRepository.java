@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.example.pizzamagic.models.Ingredient;
 
+
 public interface IIngredientRepository {
     List<Ingredient> findAll();
     Optional<Ingredient> findById(String id);

@@ -32,7 +32,7 @@
         </div>
         <div class="ingredient-group" id="toppings">
           <h3>Choose your toppings:</h3>
-          <div th:each="ingredient : ${toppings}">
+          <div th:each="ingredient : ${topping}">
             <input
               th:field="*{ingredients}"
               type="checkbox"
