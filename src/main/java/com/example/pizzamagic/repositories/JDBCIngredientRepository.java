@@ -23,14 +23,14 @@ public class JDBCIngredientRepository implements IIngredientRepository {
     @Override
     public List<Ingredient> findAll() {
         return jdbcTemplate.query(
-            "select id, name, type from Ingredient"
+            "select ingredient_id, name, type from Ingredient"
             , this::mapRowToIngredient);
     }
 
     @Override
     public Optional<Ingredient> findById(String id) {
         List<Ingredient> ingredients =  jdbcTemplate.query(
-            "select id, name, type from Ingredient where id = ?", 
+            "select ingredient_id, name, type from Ingredient where id = ?", 
             this::mapRowToIngredient, 
             id);
 
@@ -43,7 +43,7 @@ public class JDBCIngredientRepository implements IIngredientRepository {
     @Override
     public Ingredient save(Ingredient ingredient) {
         jdbcTemplate.update(
-            "insert into Ingredient(id, name, type) values (?,?,?)", 
+            "insert into Ingredient(ingredient_id, name, type) values (?,?,?)", 
             ingredient.getId(),
             ingredient.getName(),
             ingredient.getType().toString());
@@ -52,7 +52,7 @@ public class JDBCIngredientRepository implements IIngredientRepository {
 
     private Ingredient mapRowToIngredient(ResultSet row, int rowNum) throws SQLException{
         return new Ingredient(
-            row.getString("id"), 
+            row.getString("ingredient_id"), 
             row.getString("name"), 
             Ingredient.Type.valueOf(row.getString("type"))
         );
