@@ -1,6 +1,7 @@
 package com.example.pizzamagic.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.Digits;
@@ -13,6 +14,8 @@ import lombok.Data;
 
 @Data
 public class PizzaOrder {
+
+    private Long id;
 
     @NotBlank(message = "Name cannot be empty")
     private String deliverToName;
@@ -40,7 +43,10 @@ public class PizzaOrder {
     
     private List<Pizza> pizzas = new ArrayList<>(); 
 
+    private Date createdAt;
+
     public void addPizza(Pizza pizza){
         this.pizzas.add(pizza);
     }
+
 }
