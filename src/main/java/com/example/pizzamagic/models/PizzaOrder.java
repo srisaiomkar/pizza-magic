@@ -32,10 +32,12 @@ public class PizzaOrder {
     @NotBlank(message = "zip code cannot be empty")
     private String deliveryZip;
 
-    @CreditCardNumber(message = "Not a valid credit card number")
+    // @CreditCardNumber(message = "Not a valid credit card number")
+    // for testing purposes
+    @NotBlank(message = "Not a valid credit card number")
     private String ccNumber;
 
-    @Pattern(regexp = "(0[1-9]|1[0-2])/20[0-9]{2}$",message = "expiration date should be in MM/YYYY format")
+    @Pattern(regexp = "(0[1-9]|1[0-2])/[0-9]{2}$",message = "expiration date should be in MM/YY format")
     private String ccExpiration;
     
     @Digits(integer = 3,fraction = 0,message = "Invalid CVV")
@@ -43,7 +45,7 @@ public class PizzaOrder {
     
     private List<Pizza> pizzas = new ArrayList<>(); 
 
-    private Date createdAt;
+    private Date placedAt;
 
     public void addPizza(Pizza pizza){
         this.pizzas.add(pizza);

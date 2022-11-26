@@ -14,13 +14,13 @@ create table if not exists Pizza (
     pizza_id identity PRIMARY KEY,
     name varchar(50) not null,
     order_id bigint not null,
-    sequence_no bigint not null,
+    sequence_num bigint not null,
     created_at timestamp not null
 );
 create table if not exists Pizza_Ingredient_Mapping (
     pizza_id bigint not null,
     ingredient_id varchar(4) not null,
-    sequence_no bigint not null
+    sequence_num bigint not null
 );
 create table if not exists Ingredient (
     ingredient_id varchar(4) PRIMARY KEY,

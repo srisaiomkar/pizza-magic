@@ -22,5 +22,5 @@ public class Pizza {
     @Size(min = 1,message = "There should be atleast 1 ingredient")
     private List<Ingredient> ingredients;
 
-    private Date createdAt = new Date();
+    private Date createdAt;
 }
